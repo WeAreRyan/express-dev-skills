@@ -14,9 +14,16 @@
         <a href="/skills/<%= skill.id %>"><%= skill.language %></a>
            - 
          <%= skill.mastered ? 'Mastered' : 'Newby' %>
+         <form action="/skills/<%= skill.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+          </form>
+        </form>
        </li>
      <% }); %>
    </ul>
+   <a href="/skills/new">Add New Skill</a>
+   <br>
    <a href="/">Home Page</a>
  </body>
 </html>
