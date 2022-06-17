@@ -6,6 +6,8 @@ module.exports = {
     new: newSkill, 
     create, 
     delete: deleteSkill,
+    update, 
+    edit, 
 };
 // Index (or show all) conoteroller function
 function index(req, res) {
@@ -36,4 +38,18 @@ function create(req, res) {
 function deleteSkill(req, res) {
   Skill.deleteOne(req.params.id);
   res.redirect('/skills')
+}
+
+// edit skills functions
+function edit(req, res) {
+  res.render('skills/edit', {
+    skill: Skill.getOne(req.params.id),
+  })
+}
+
+function update(req, res){
+  Skill.update(req.body, req.params.id);
+  console.log(req.body);
+  console.log(req.params.id)
+  res.redirect(`/skills/${req.params.id}`)
 }

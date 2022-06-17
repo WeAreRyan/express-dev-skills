@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Skill</title>
+    <title>Edit Skill name</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
  <body>
-    <h1>New Skill</h1>
-    <form action="/skills" method="POST" autocomplete="off">
-      <input type="text" name="language">
-      <button type="submit">Add new skill</button>
+    <h1>Edit Skill</h1>
+    <form action="/skills/<%= skill.id %>?_method=PUT" method="POST" autocomplete="off">
+      <input type="text" name="language" value="<%= skill.language %>">
+      <button type="submit">Update Skill</button>
     </form>
    <a href="/">Home Page</a>
  </body>
